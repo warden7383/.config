@@ -19,7 +19,10 @@
   "conform.nvim": { "branch": "master", "commit": "bf109f061fc3cd75394b7823923187ae045cbf22" },
   "dial.nvim": { "branch": "master", "commit": "27eb570085db2ef44bff4f620d3806039184651c" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
+<<<<<<< HEAD
   "dropbar.nvim": { "branch": "master", "commit": "f1034cfe852cf62a0ebb12ae583f1477ea07e060" },
+=======
+>>>>>>> parent of e935bd5 (feat: lualine lsp status component)
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "friendly-snippets": { "branch": "main", "commit": "dcd4a586439a1c81357d5b9d26319ae218cc9479" },
   "garbage-day.nvim": { "branch": "main", "commit": "29d6abeed654bf142e0f5e741e1968b16f59357a" },
