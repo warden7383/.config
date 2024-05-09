@@ -1,10 +1,13 @@
-local data = vim.fn.stdpath("data") .. "/mason/bin/stylua"
-print(data)
+-- local data = vim.fn.stdpath("data") .. "/mason/bin/stylua"
+-- print(data)
+
 -- stylua ready (lua) C:\Users\Andrew Ng\AppData\Local\nvim-data\mason\bin\stylua.CMD
 require("conform").setup({
-	log_level = vim.log.levels.TRACE,
+	log_level = vim.log.levels.DEBUG,
 	formatters_by_ft = {
-		lua = { "stylua" },
+		lua = { 
+      "stylua"
+    },
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
 		-- Use a sub-list to run only the first available formatter
@@ -20,8 +23,10 @@ require("conform").setup({
 	},
 	formatters = {
 		stylua = {
-			-- command = "C:\\Users\\Andrew Ng\\AppData\\Local\\nvim-data\\mason\\bin\\stylua",
+			command = "stylua",
+			-- command = "C:\\Users\\'Andrew Ng'\\AppData\\Local\\nvim-data\\mason\\bin\\stylua",
 			-- WARN: spaces in directorys must be escaped with quotes
+			-- command = 'C:/Users/\'Andrew Ng\'/AppData/Local/nvim-data/mason/bin/stylua',
 		},
 		clang_format = {
 			command = "clang-format",
@@ -31,3 +36,9 @@ require("conform").setup({
 		},
 	},
 })
+
+
+
+
+
+
