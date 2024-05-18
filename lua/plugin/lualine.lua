@@ -1,3 +1,32 @@
+local colors = {
+  rosewater = "#f4dbd6",
+  flamingo = "#f0c6c6",
+  pink = "#f5bde6",
+  mauve = "#c6a0f6",
+  red = "#ed8796",
+  maroon = "#ee99a0",
+  peach = "#f5a97f",
+  yellow = "#eed49f",
+  green = "#a6da95",
+  teal = "#8bd5ca",
+  sky = "#91d7e3",
+  sapphire = "#7dc4e4",
+  blue = "#8aadf4",
+  lavender = "#b7bdf8",
+  text = "#cad3f5",
+  subtext1 = "#b8c0e0",
+  subtext0 = "#a5adcb",
+  overlay2 = "#939ab7",
+  overlay1 = "#8087a2",
+  overlay0 = "#6e738d",
+  surface2 = "#5b6078",
+  surface1 = "#494d64",
+  surface0 = "#363a4f",
+  base = "#24273a",
+  mantle = "#1e2030",
+  crust = "#24283b",
+}
+
 local function lspStatus ()
   local lspName = vim.lsp.get_clients({ bufnr = 0 })
   local name = ""
@@ -15,7 +44,7 @@ end
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+    -- theme = "auto",
 		-- component_separators = { left = "", right = "" },
 		component_separators = { left = "|", right = "|" },
 		-- section_separators = { left = "", right = "" },
@@ -34,9 +63,71 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
+    lualine_a = { 
+      {
+        "mode",
+        icons_enabled = true,
+        icon = "󰄛",    
+        color = {
+          -- bg = "NONE"
+        }
+      }
+    },
+    lualine_b = { 
+      {
+        "branch", 
+        color = {
+          bg = colors.crust,
+        },
+      },
+      -- "branch", 
+      {
+        "diff",
+        colored = true,
+        icons_enabled = true,
+        diff_color = {
+          -- added = colors.green,
+          added = {
+            fg = colors.green,
+            bg = colors.crust,
+          },
+          modified = {
+            fg = colors.lavender,
+            bg = colors.crust,
+          },
+          removed = {
+            fg = colors.red,
+            bg = colors.crust,
+          },
+          -- modified = colors.lavender,
+          -- removed = colors.red,
+        },
+        symbols = {
+          added = " ",
+          modified = " ",
+          removed = " ",
+        },
+      },
+      -- "diagnostics",
+      {
+        "diagnostics",
+        color = {
+          bg = colors.crust,
+        },
+      },
+    },
+		lualine_c = { 
+      {
+        "filename",
+        symbols = {
+          modified = ''
+        },
+        color = {
+          bg = colors.crust
+        }
+      },
+      -- "filename"
+    },
 		lualine_x = { "encoding", "fileformat", "filetype", lspStatus  },
 		lualine_y = { "progress", "selectioncount"},
 		lualine_z = { "location" },
